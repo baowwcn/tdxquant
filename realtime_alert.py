@@ -5,6 +5,7 @@ import sys
 from datetime import datetime, timedelta
 from collections import defaultdict
 from tqcenter import tq
+from dingtalk_send import send_dingtalk
 
 SECTOR_NAMES = ['通达信88']
 PRICE_RISE_THRESHOLD = 5.0
@@ -107,6 +108,9 @@ def on_data(datas):
                     count=1
                 )
                 print(f"[{datetime.now().strftime('%H:%M:%S')}] {code} 涨幅 {rise_pct:.2f}%，预警发送结果：{warn_res}")
+
+                ding_msg = f"涨幅预警: {code}\n涨幅: {rise_pct:.2f}%\n现价: {latest_price}\n前收: {pre_close}\n原因: {reason}"
+                send_dingtalk(ding_msg)
             except Exception as e:
                 print(f"[{datetime.now().strftime('%H:%M:%S')}] {code} 发送预警失败：{e}")
 
@@ -123,6 +127,7 @@ if __name__ == "__main__":
         tq.initialize(__file__)
         print(f"程序启动时间：{datetime.now().strftime('%Y-%m-%d %H:%M:%S')}")
         print(f"TDX初始化成功")
+        send_dingtalk("系统通知: 实时涨幅预警已启动")
     except Exception as e:
         print(f"TDX初始化失败：{e}")
         exit(1)
