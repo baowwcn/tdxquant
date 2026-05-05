@@ -24,6 +24,7 @@ tq.close()  # Always close connection
 - `tqcenter.py`: Core API (`tq` class, `tqconst` constants)
 - `tqtrade.py`: Trading wrapper with order/position functions
 - `test.py`: Example strategy using stock screening
+- `tdx_quant/`: Higher-level framework (strategy, signal, trade, data, core modules)
 
 ## Supported Data Types
 - A股 (SZ/SH), 港股 (HK), 美股 (US), 期货 (SHF/DCE/CZC/CFF), 期权, 指数 (CSI/CNI)
