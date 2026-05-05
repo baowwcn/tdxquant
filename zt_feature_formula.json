@@ -1,0 +1,14 @@
+{
+  "name": "涨停特征选股公式",
+  "description": "基于涨停共性特征的选股公式：短期多头+价格突破+放量"
+}
+{
+  "category": "选股公式",
+  "formula_name": "涨停特征选股",
+  "content": "MA5:=MA(CLOSE,5);\nMA10:=MA(CLOSE,10);\nMA20:=MA(CLOSE,20);\nMA60:=MA(CLOSE,60);\n\n{短期均线多头排列}\nSHORT_BULL:=MA5>MA10 AND MA10>MA20;\n\n{价格站上短期均线}\nPRICE_ABOVE:=CLOSE>MA5 AND CLOSE>MA20;\n\n{成交量放大 - 近5日均量大于前20日均量}\nVOL_RATIO:=MA(VOL,5)/MA(VOL,20);\nVOL_UP:=VOL_RATIO>1.0;\n\n{综合选股条件}\nZZTC:=SHORT_BULL AND PRICE_ABOVE AND VOL_UP;\n\n{输出}\nZZTC;"
+}
+{
+  "category": "技术指标",
+  "formula_name": "涨停特征",
+  "content": "MA5:=MA(CLOSE,5);\nMA10:=MA(CLOSE,10);\nMA20:=MA(CLOSE,20);\nMA60:=MA(CLOSE,60);\nMA120:=MA(CLOSE,120);\n\n{短期均线多头排列}\nSHORT_BULL:=MA5>MA10 AND MA10>MA20;\n\n{中期均线多头}\nMEDIUM_BULL:=MA20>MA60;\n\n{长期均线多头}\nLONG_BULL:=MA60>MA120;\n\n{价格位置}\nABOVE_MA5:=CLOSE>MA5;\nABOVE_MA20:=CLOSE>MA20;\nABOVE_MA60:=CLOSE>MA60;\n\n{成交量}\nVOL_RATIO:=MA(VOL,5)/MA(VOL,20);\n\n{输出信号}\nDRAWLINE(ABOVE_MA5,CLOSE,ABOVE_MA20,CLOSE,0);\n\n{显示数值}\nMA5;\nMA10;\nMA20;\nMA60;\nMA120;\nVOL_RATIO;"
+}

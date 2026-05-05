@@ -1,0 +1,18 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(python:*)",
+      "Bash(ls:*)",
+      "Bash(/Volumes/PYPlugins/user/.venv-1/bin/python:*)",
+      "Bash(sqlite3 --version)",
+      "Bash(sqlite3 /Volumes/PYPlugins/user/a_share_full.db \"SELECT MAX\\(date\\) FROM stock_data\")",
+      "Bash(sqlite3 /Volumes/PYPlugins/user/a_share_monthly.db \"SELECT MAX\\(date\\) FROM stock_data\")",
+      "Bash(/Volumes/PYPlugins/user/.venv/Scripts/python.exe:*)",
+      "Bash(python3:*)",
+      "Bash(SQLite_BUSY_TIMEOUT=10000 sqlite3:*)",
+      "Bash(cp /Volumes/PYPlugins/user/a_share_full.db /tmp/a_share_full.db)",
+      "Bash(rm /tmp/a_share_full.db)",
+      "Bash(pip install:*)"
+    ]
+  }
+}

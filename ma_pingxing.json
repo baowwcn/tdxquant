@@ -1,0 +1,8 @@
+{
+  "name": "均线平行上升选股公式",
+  "description": "筛选MA60和MA120近似平行上升的股票 — 长期多头 + 差值稳定"
+}
+{
+  "formula_name": "均线平行上升",
+  "content": "MA60:=MA(CLOSE,60);\nMA120:=MA(CLOSE,120);\n\n{长期多头排列}\nDUOTOU:=MA60>MA120;\n\n{30日前的均线差值}\nMA60_30:=REF(MA60,30);\nMA120_30:=REF(MA120,30);\nCHAZHI_30:=MA60_30-MA120_30;\n\n{当前均线差值}\nCHAZHI:=MA60-MA120;\n\n{差值变化幅度 - 近似平行 = 近30日差值变化<30%}\nBIANHUA:=ABS(CHAZHI-CHAZHI_30)/CHAZHI_30*100;\nPINGXING:=BIANHUA<30;\n\n{综合选股条件}\nXX:DUOTOU AND PINGXING;"
+}
