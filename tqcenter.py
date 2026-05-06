@@ -836,10 +836,8 @@ class tq:
         codes = data_json['Code']
 
         if cls.data_callback_func.get(cls._get_run_id()) is None:
-            print("No callback function registered for run_id:", cls._get_run_id())
             return None
         if cls.data_callback_func[cls._get_run_id()].get(codes) is None:
-            print("No callback function registered for code:", codes)
             return None
         return cls.data_callback_func[cls._get_run_id()][codes](data_str)
         
