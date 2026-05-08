@@ -18,7 +18,7 @@ from dingtalk_send import send_dingtalk
 # 配置参数
 # ======================
 # 监控的板块名称列表（通达信板块）
-SECTOR_NAMES = ['buy']
+SECTOR_NAMES = ['JLDT']
 # 涨幅阈值（%），超过此值触发预警
 PRICE_RISE_THRESHOLD = 3.0
 # 防抖间隔（秒），同一股票在该时间段内只触发一次预警
